@@ -18,7 +18,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+    //opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Asus"));
 });
 
 var app = builder.Build();

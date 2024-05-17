@@ -45,7 +45,7 @@ namespace Medicio.Controllers
                 }
                 return View();
             }
-            var roleResult =  await _userManager.AddToRoleAsync(user, "Member");
+            var roleResult =  await _userManager.AddToRoleAsync(user, "Admin");
             return RedirectToAction(nameof(Login));
         }
 

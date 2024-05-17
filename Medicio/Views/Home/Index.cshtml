@@ -1,4 +1,7 @@
-﻿<!-- ======= Hero Section ======= -->
+﻿@using Core.Models
+
+@model List<Doctor>
+<!-- ======= Hero Section ======= -->
 <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
@@ -7,7 +10,7 @@
         <div class="carousel-inner" role="listbox">
 
             <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+            <div class="carousel-item active" style="background-image: url(~/assets/img/slide/slide-1.jpg)">
                 <div class="container">
                     <h2>Welcome to <span>Medicio</span></h2>
                     <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
@@ -16,7 +19,7 @@
             </div>
 
             <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
+            <div class="carousel-item" style="background-image: url(~/assets/img/slide/slide-2.jpg)">
                 <div class="container">
                     <h2>Lorem Ipsum Dolor</h2>
                     <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
@@ -25,7 +28,7 @@
             </div>
 
             <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
+            <div class="carousel-item" style="background-image: url(~/assets/img/slide/slide-3.jpg)">
                 <div class="container">
                     <h2>Sequi ea ut et est quaerat</h2>
                     <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
@@ -478,78 +481,28 @@
 
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member-img">
-                            <img src="~/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                @foreach(var item in Model)
+                {
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="100">
+                            <div class="member-img">
+                                <img src="~/upload/doctor/@item.ImgUrl" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>@item.Name @item.Surname</h4>
+                                <span>@item.Position</span>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Medical Officer</span>
-                        </div>
                     </div>
-                </div>
+                }
 
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member-img">
-                            <img src="~/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Anesthesiologist</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member-img">
-                            <img src="~/assets/img/doctors/doctors-3.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>Cardiology</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="400">
-                        <div class="member-img">
-                            <img src="~/assets/img/doctors/doctors-4.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Amanda Jepson</h4>
-                            <span>Neurosurgeon</span>
-                        </div>
-                    </div>
-                </div>
-
+               
             </div>
 
         </div>
