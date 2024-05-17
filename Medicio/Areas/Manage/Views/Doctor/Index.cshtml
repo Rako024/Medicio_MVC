@@ -1,0 +1,49 @@
+﻿@using Core.Models
+@{
+    int count = 1;
+}
+@model List<Doctor>
+
+    <div class="container">
+        
+            <h1>Doctors</h1>
+            <a class="btn btn-primary" asp-action="Create">Create</a>
+    </div>
+<div class="container justify-content-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Position</th>
+                <th scope="col">Photo</th>s
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Position</td>
+                    <td>
+                        <img src="~/upload/doctor/@item.ImgUrl" width="100" height="100"/>
+                    </td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+
+                count++;
+            }
+            
+        </tbody>
+    </table>
+
+    <div asp-validation-summary=All class="text-danger"></div>
+</div>

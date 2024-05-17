@@ -1,0 +1,37 @@
+﻿@using Core.Models
+@model Doctor
+<div class="container justify-content-center">
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Surname" class="form-label">Surname</label>
+            <input asp-for="Surname" class="form-control">
+            <span asp-validation-for="Surname" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Position" class="form-label">Position</label>
+            <input asp-for="Position" class="form-control">
+            <span asp-validation-for="Position" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ImgUrl" class="form-label">Image</label>
+            
+            <img src="~/upload/doctor/@Model.ImgUrl" width="100" height="100" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhotoFile" class="form-label">Photo File</label>
+            <input asp-for="PhotoFile" class="form-control">
+            <span asp-validation-for="PhotoFile" class="text-danger"></span>
+        </div>
+        <div asp-validation-summary=All>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
